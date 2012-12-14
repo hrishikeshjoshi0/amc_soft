@@ -16,8 +16,6 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<g:sortableColumn property="partyId" title="${message(code: 'party_Customer.partyId.label', default: 'Party Id')}" />
-			
 				<g:sortableColumn property="externalId" title="${message(code: 'party_Customer.externalId.label', default: 'External Id')}" />
 				
 				<g:sortableColumn property="customerCode" title="${message(code: 'party_Customer.customerCode.label', default: 'Customer Code')}" />
@@ -26,13 +24,12 @@
 			
 				<g:sortableColumn property="description" title="${message(code: 'party_Customer.description.label', default: 'Description')}" />
 			
+				<th/>
 			</tr>
 		</thead>
 		<tbody>
 		<g:each in="${party_CustomerInstanceList}" status="i" var="party_CustomerInstance">
 			<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-			
-				<td><g:link action="show" id="${party_CustomerInstance.partyId}">${fieldValue(bean: party_CustomerInstance, field: "partyId")}</g:link></td>
 			
 				<td>${fieldValue(bean: party_CustomerInstance, field: "externalId")}</td>
 				
@@ -42,6 +39,11 @@
 			
 				<td>${fieldValue(bean: party_CustomerInstance, field: "description")}</td>
 			
+				<td class="link">
+					<g:link action="show" id="${party_CustomerInstance.partyId}" class="btn btn-small">
+						Show »
+					</g:link>
+				</td>
 			</tr>
 		</g:each>
 		</tbody>
